@@ -1,0 +1,10 @@
+categories:
+- Media
+- Plex Media Server
+questions:
+- variable: plexClaim
+  default: ""
+  description: "Token generated from https://plex.tv/claim"
+  type: string
+  required: true
+  label: Plex Claim Token

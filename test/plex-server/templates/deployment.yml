@@ -1,0 +1,98 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: plex
+  namespace: plex-server
+  labels:
+    workload.user.cattle.io/workloadselector: deployment-plex-server
+    component: deployment-plex-server
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  selector:
+    matchLabels:
+      workload.user.cattle.io/workloadselector: deployment-plex-server
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: deployment-plex-server
+        component: deployment-plex-server
+    spec:
+      containers:
+      - env:
+        - name: PLEX_CLAIM
+          value: {{ default "" .Values.plexClaim | quote }}
+        - name: TZ
+          value: Europe/Amsterdam
+        image: plexinc/pms-docker:plexpass
+        imagePullPolicy: Always
+        name: plex
+        ports:
+        - containerPort: 32400
+          name: 32400tcp02
+          protocol: TCP
+        - containerPort: 3005
+          name: 3005tcp02
+          protocol: TCP
+        - containerPort: 8324
+          name: 8324tcp02
+          protocol: TCP
+        - containerPort: 32469
+          name: 32469tcp02
+          protocol: TCP
+        - containerPort: 1900
+          name: 1900udp02
+          protocol: UDP
+        - containerPort: 32410
+          name: 32410udp02
+          protocol: UDP
+        - containerPort: 32412
+          name: 32412udp02
+          protocol: UDP
+        - containerPort: 32413
+          name: 32413udp02
+          protocol: UDP
+        - containerPort: 32414
+          name: 32414udp02
+          protocol: UDP
+        resources: {}
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities: {}
+          privileged: false
+          readOnlyRootFilesystem: false
+          runAsNonRoot: false
+        stdin: true
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        tty: true
+        volumeMounts:
+        - mountPath: /config
+          name: config
+        - mountPath: /transcode
+          name: transcode
+        - mountPath: /data
+          name: media
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - hostPath:
+          path: /mnt/plex/config
+          type: DirectoryOrCreate
+        name: config
+      - hostPath:
+          path: /mnt/plex/transcode
+          type: DirectoryOrCreate
+        name: transcode
+      - hostPath:
+          path: /mnt/plex/media
+          type: DirectoryOrCreate
+        name: media
