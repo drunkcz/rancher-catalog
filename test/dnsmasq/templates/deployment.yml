@@ -61,7 +61,7 @@ spec:
         configMap: 
           name: dnsmasq
           items:
-          - key: dnsmask.conf
+          - key: dnsmasq.conf
             path: dnsmasq.conf
       - name: dnsmasq-static-hosts
         configMap: 
