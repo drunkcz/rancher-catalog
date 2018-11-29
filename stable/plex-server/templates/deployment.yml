@@ -14,7 +14,7 @@ spec:
       workload.user.cattle.io/workloadselector: deployment-plex-server
   strategy:
     rollingUpdate:
-      maxSurge: 2
+      maxSurge: 1
       maxUnavailable: 0
     type: RollingUpdate
   template:

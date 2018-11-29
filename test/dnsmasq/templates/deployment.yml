@@ -59,13 +59,13 @@ spec:
       volumes:
       - name: dnsmasq-config
         configMap: 
-          name: dnsmask
+          name: dnsmasq
           items:
           - key: dnsmask.conf
             path: dnsmasq.conf
       - name: dnsmasq-static-hosts
         configMap: 
-          name: dnsmask
+          name: dnsmasq
           items:
           - key: dnsmasq_static_hosts.conf
             path: dnsmasq_static_hosts.conf   
