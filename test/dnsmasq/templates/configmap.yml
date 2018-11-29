@@ -13,7 +13,7 @@ data:
     addn-hosts=/etc/dnsmasq_static_hosts.conf
     expand-hosts
     domain=cluster.local
-    address=/cluster.local/192.168.0.9
+    address=/cluster.local/192.168.0.109
   dnsmasq_static_hosts.conf: |-
     192.168.0.109 plex-ui
 
