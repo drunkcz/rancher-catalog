@@ -15,5 +15,5 @@ data:
     domain=cluster.local
     address=/cluster.local/192.168.0.109
   dnsmasq_static_hosts.conf: |-
-    192.168.0.109 plex-ui
+    192.168.0.106 rancher
 
