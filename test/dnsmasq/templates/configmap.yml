@@ -14,5 +14,6 @@ data:
     expand-hosts
     domain=cluster.local
     address=/cluster.local/192.168.0.9
-  dnsmasq_static_hosts.conf: 192.168.0.109 plex-ui
+  dnsmasq_static_hosts.conf: |-
+    192.168.0.109 plex-ui
 

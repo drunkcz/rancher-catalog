@@ -2,7 +2,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: plex-ui
+  name: plex
   namespace: plex-server
 spec:
   rules:
