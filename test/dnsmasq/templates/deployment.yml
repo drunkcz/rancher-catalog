@@ -54,6 +54,7 @@ spec:
           subPath: dnsmasq_static_hosts.conf
       dnsPolicy: ClusterFirst
       restartPolicy: Always
+      nodeName: master
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
