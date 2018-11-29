@@ -1,0 +1,13 @@
+apiVersion: v1
+appVersion: 0.1
+description: Plex Media Server
+name: plex-server
+version: 0.1
+keywords:
+- plex
+- plex-server
+- media
+icon: https://cdn.dribbble.com/users/4200/screenshots/55061/shot_1284483636.png
+maintainers:
+- name: vladbutacu
+  email: vladbutacu@gmail.com

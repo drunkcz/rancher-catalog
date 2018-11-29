@@ -1,0 +1,15 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: plex-ui
+  namespace: plex-server
+spec:
+  rules:
+  - host: plex-ui.local
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: ingress-plex
+          servicePort: 32400
