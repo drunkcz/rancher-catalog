@@ -29,7 +29,8 @@ spec:
         name: dnsmasq
         ports:
         - containerPort: 53
-          name: 53udp02
+          hostPort: 53
+          name: 53udp53
           protocol: UDP
         resources: {}
         securityContext:
