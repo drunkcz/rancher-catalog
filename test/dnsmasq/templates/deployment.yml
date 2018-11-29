@@ -2,7 +2,7 @@ apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
   name: dnsmasq
-  namespace: default
+  namespace: dnsmasq
   labels:
     workload.user.cattle.io/workloadselector: deployment-dnsmasq
     component: deployment-dnsmasq

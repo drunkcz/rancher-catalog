@@ -6,7 +6,7 @@ metadata:
   namespace: plex-server
 spec:
   rules:
-  - host: plex-ui.local
+  - host: plex.cluster.local
     http:
       paths:
       - path: /

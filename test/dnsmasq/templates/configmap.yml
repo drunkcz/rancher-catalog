@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dnsmasq
+  namespace: dnsmasq
+data:
+  dnsmasq.conf: |-
+    domain-needed
+    bogus-priv
+    no-resolv
+    no-poll
+    no-hosts
+    addn-hosts=/etc/dnsmasq_static_hosts.conf
+    expand-hosts
+    domain=cluster.local
+    address=/cluster.local/192.168.0.9
+  dnsmasq_static_hosts.conf: 192.168.0.109 plex-ui
+
